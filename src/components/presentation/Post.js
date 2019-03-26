@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, Dimensions, TouchableOpacity}  from 'react-native'
-import config from './config';
+import config from '../../config'
+
 class Post extends Component {
 
     constructor() {
@@ -25,10 +26,7 @@ class Post extends Component {
         const imageUri = "https://i.imgur.com/AA3M4zR.jpg"
         const heartIconColor = (this.state.liked) ? 'rgb(252, 61, 57)' : null
         return(
-            <View style={{flex:1, width:100+'%', height: 100 + '%' }}>
-                <View style={styles.tempNav}>
-                    <Text>Instagram</Text>
-                </View>
+            <View style={{flex: 1, width: 100 + '%'}}>
                 <View style={styles.userBar}>
                     <View style={{flexDirection: 'row', alignItems:'center'}}>
                         <Image 
