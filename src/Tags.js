@@ -1,24 +1,22 @@
 import React from 'react';
-import { Button, StyleSheet, ActivityIndicator, Text, View, ScrollView  } from 'react-native';
+import { Button, StyleSheet, FlatList, Text, View, Alert  } from 'react-native';
 
 const styles = StyleSheet.create({
-    header: {
-      color: 'black',
-      fontWeight: 'bold',
-      fontSize: 20,
-      padding: 20,
-      width: 100+'%',
-      textAlign: 'center'
-    },
-  });
+    item: {
+      padding: 10,
+      fontSize: 18,
+      height: 44,
+      backgroundColor: "gray"
+    }
+  })
 
 export default class Tags extends React.Component {
 
     constructor(props) {
         super(props)        
         let tags = JSON.parse(this.props.test)
-        tags.forEach(element => console.log(element))
-        this.state ={ tags: tags}
+       // tags.forEach(element => console.log(element))
+        this.state = { tags: tags}
     }
 
     _onPressButton() {
@@ -27,11 +25,14 @@ export default class Tags extends React.Component {
 
     render(){
         return(
-            <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-start', padding: 20, border:1}}>
-                  
-                <Button
-                    onPress={this._onPressButton}
-                    title={this.state.tags[0]}
+            <View style={{justifyContent: 'flex-start'}}>
+                <FlatList horizontal
+                data={this.state.tags}
+                  renderItem={({ item, index}) => {                      
+                      console.log(`Item = ${item}, index = ${index}`);
+                      return (<Text style={styles.item}>{item}</Text>)
+                  }}
+                  keyExtractor={(item, index) => index.toString()}
                 />
             </View> 
           )
