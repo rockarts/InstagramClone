@@ -3,10 +3,13 @@ import { Button, StyleSheet, FlatList, Text, View, Alert  } from 'react-native';
 
 const styles = StyleSheet.create({
     item: {
-      padding: 10,
-      fontSize: 18,
+      padding:11,
+      margin: 5,
+      fontSize: 12,
       height: 44,
-      backgroundColor: "gray"
+      color: 'white',
+      backgroundColor: "gray",
+      borderRadius: 20
     }
   })
 
@@ -17,6 +20,9 @@ export default class Tags extends React.Component {
         let tags = JSON.parse(this.props.test)
        // tags.forEach(element => console.log(element))
         this.state = { tags: tags}
+    }
+
+    componentDidMount(){
     }
 
     _onPressButton() {

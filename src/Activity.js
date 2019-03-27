@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
   });
 
-export default class Practice extends React.Component {
+export default class Activity extends React.Component {
 
   constructor(props){
     super(props);
@@ -21,7 +21,7 @@ export default class Practice extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://flit-api.azurewebsites.net/api/phone/content/3?format=json')
+    return fetch('http://flit-api.azurewebsites.net/api/phone/content/12?format=json')
       .then((response) => response.json())
       .then((responseJson) => {
         console.log(responseJson)
